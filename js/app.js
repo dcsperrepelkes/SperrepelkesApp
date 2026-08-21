@@ -14,7 +14,7 @@ const CACHE_GELDIGHEID_MINUTEN = 30;
 // automatisch elke 30 minuten). Zet op true tijdens het testen om altijd
 // meteen te kunnen forceren. Geldt enkel voor Home — op Kalender en
 // Rangschikking blijft de knop altijd zichtbaar.
-const TOON_VERVERSKNOP_HOME = true;
+const TOON_VERVERSKNOP_HOME = false;
 
 const REEKSEN = ["A", "B", "C", "D"];
 const REEKS_LABEL = { A: "Reeks A", B: "Reeks B", C: "Reeks C", D: "Reeks D" };
