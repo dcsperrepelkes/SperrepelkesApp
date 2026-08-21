@@ -1,4 +1,4 @@
-const CACHE_NAME = "sperrepelkes-shell-v1";
+const CACHE_NAME = "sperrepelkes-shell-v33";
 const SHELL_FILES = [
   "./",
   "./index.html",
@@ -11,7 +11,18 @@ const SHELL_FILES = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(SHELL_FILES)).then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then((cache) =>
+      // Elk bestand apart proberen cachen: als er één ontbreekt of faalt,
+      // mag dat de installatie van de rest (en dus de update) niet blokkeren.
+      // (cache.addAll() faalt namelijk volledig bij één enkele mislukking.)
+      Promise.allSettled(
+        SHELL_FILES.map((file) =>
+          fetch(file, { cache: "no-store" }).then((resp) => {
+            if (resp.ok) return cache.put(file, resp);
+          })
+        )
+      )
+    ).then(() => self.skipWaiting())
   );
 });
 

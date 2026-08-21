@@ -12,6 +12,7 @@
 <link rel="icon" href="icons/icon-192.png" />
 <link rel="apple-touch-icon" href="icons/icon-192.png" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Sperrepelkes" />
 
@@ -25,12 +26,12 @@
 </header>
 
 <!-- Sub-tabs: Reeks A / B / C / D -->
-<nav class="reeks-tabs" id="reeksTabs" role="tablist" aria-label="Reeks"></nav>
+<nav class="reeks-tabs hidden" id="reeksTabs" role="tablist" aria-label="Reeks"></nav>
 
 <!-- Inhoud -->
 <main id="content">
-  <div class="content-toolbar">
-    <span id="bewerkingsdatum" class="bewerkingsdatum">Laatst gewijzigd: onbekend</span>
+  <div class="content-toolbar" id="contentToolbar">
+    <span id="bewerkingsdatum" class="bewerkingsdatum hidden">Laatst gewijzigd: onbekend</span>
     <button id="refreshBtn" class="icon-btn" title="Vernieuwen" aria-label="Vernieuwen">
       <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M17.65 6.35A7.958 7.958 0 0 0 12 4a8 8 0 1 0 7.75 10h-2.1A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
     </button>
@@ -42,6 +43,7 @@
     <div class="spinner"></div>
   </div>
 
+  <div id="homeView" class="view"></div>
   <div id="kalenderView" class="view hidden"></div>
   <div id="rangschikkingView" class="view hidden"></div>
 </main>
@@ -61,7 +63,11 @@
 
 <!-- Onderbalk -->
 <nav class="bottom-nav" aria-label="Hoofdnavigatie">
-  <button class="nav-item active" data-section="kalender" aria-label="Kalender">
+  <button class="nav-item active" data-section="home" aria-label="Home">
+    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg>
+    <span>Home</span>
+  </button>
+  <button class="nav-item" data-section="kalender" aria-label="Kalender">
     <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M7 11h5v5H7zM19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
     <span>Kalender</span>
   </button>

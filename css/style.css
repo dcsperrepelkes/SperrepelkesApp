@@ -74,7 +74,7 @@ body {
   border: none;
   background: transparent;
   padding: 12px 8px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--on-surface-variant);
   cursor: pointer;
@@ -156,6 +156,274 @@ main#content {
   text-align: center;
 }
 
+/* ---------- Home ---------- */
+.home-content {
+  padding: 12px;
+}
+
+/* "Volgende speeldag" — zelfde omkaderde kaartstijl als de sponsorbanner */
+.vs-banner {
+  margin-top: 18px;
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: 12px;
+  padding: 14px;
+}
+.vs-banner:first-child { margin-top: 0; }
+.vs-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-variant);
+  margin-bottom: 6px;
+}
+.vs-datum {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.vs-reeks-groep { margin-top: 10px; }
+.vs-reeks-groep:first-of-type { margin-top: 0; }
+
+.home-reeks-tag {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin: 0 0 8px 0;
+}
+
+/* ---------- Home: uitklapbare kaartjes ---------- */
+.home-kaarten {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+.accordion-card {
+  background: var(--surface-variant);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  padding: 12px 14px;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.accordion-titelblok { flex: 1; min-width: 0; }
+.accordion-titel {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+.accordion-titel-groot-gecentreerd {
+  font-size: 1.05rem;
+  text-align: center;
+  width: 100%;
+}
+.accordion-samenvatting {
+  font-size: 0.8rem;
+  color: var(--on-surface-variant);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.accordion-chevron {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  color: var(--on-surface-variant);
+  transition: transform 0.15s ease;
+}
+.accordion-chevron-groot { font-size: 1.8rem; }
+.accordion-chevron.open { transform: rotate(180deg); }
+.accordion-body {
+  padding: 0 14px 14px;
+}
+
+.nieuws-item { padding: 4px 0 14px; }
+.nieuws-kop {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.nieuws-titel { font-weight: 700; font-size: 0.88rem; }
+.nieuws-samenvatting-titel {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--on-surface);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nieuws-datum { font-size: 0.72rem; color: var(--on-surface-variant); white-space: nowrap; margin-left: auto; }
+.nieuws-tekst { font-size: 0.85rem; margin-top: 4px; color: var(--on-surface); white-space: pre-line; }
+.nieuws-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 6px;
+  text-decoration: none;
+}
+@media (prefers-color-scheme: dark) { .nieuws-link { color: var(--secondary); } }
+
+/* ---------- Home: Ranking-kaartje (podium) ---------- */
+.ranking-sectie-titel {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--primary);
+  margin: 10px 0 4px;
+}
+@media (prefers-color-scheme: dark) { .ranking-sectie-titel { color: var(--secondary); } }
+.ranking-sectie-titel:first-child { margin-top: 0; }
+.ranking-sectie-uitleg {
+  font-size: 0.76rem;
+  color: var(--on-surface-variant);
+  margin: 0 0 10px;
+}
+
+.podium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+.podium-boven, .podium-onder {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.podium-plek {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: 10px;
+  padding: 8px 14px;
+  min-width: 84px;
+}
+.podium-plek-1 { border-color: var(--primary); }
+.podium-medaille { font-size: 1.4rem; line-height: 1; }
+.podium-namen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 4px;
+}
+.podium-naam {
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-align: center;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.podium-waarde {
+  font-size: 0.72rem;
+  color: var(--on-surface-variant);
+  margin-top: 2px;
+}
+
+.rode-lantaarn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--on-surface-variant);
+}
+.rode-lantaarn-icoon { font-size: 1.15rem; line-height: 1; }
+.rode-lantaarn-naam { font-weight: 700; color: var(--on-surface); }
+
+.ranking-lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 2px 0 4px;
+}
+.ranking-lijst-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ranking-lijst-medaille { font-size: 1.3rem; line-height: 1; flex-shrink: 0; }
+.ranking-lijst-naam { font-weight: 700; font-size: 0.88rem; }
+
+.rankings-link {
+  display: block;
+  text-align: center;
+  margin: 16px 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: underline;
+}
+@media (prefers-color-scheme: dark) { .rankings-link { color: var(--secondary); } }
+
+/* ---------- Home: sponsorbanner ---------- */
+.sponsor-banner {
+  margin-top: 18px;
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: 12px;
+  padding: 14px;
+}
+.sponsor-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-variant);
+  margin-bottom: 8px;
+}
+.sponsor-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sponsor-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--surface-variant);
+  flex-shrink: 0;
+}
+.sponsor-tekst-blok { min-width: 0; }
+.sponsor-naam { font-weight: 700; font-size: 0.95rem; }
+.sponsor-tekst { font-size: 0.82rem; color: var(--on-surface-variant); margin-top: 2px; white-space: pre-line; }
+.sponsor-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+@media (prefers-color-scheme: dark) { .sponsor-link { color: var(--secondary); } }
+
 /* ---------- Kalender ---------- */
 .kalender-list {
   display: flex;
@@ -201,15 +469,18 @@ main#content {
   gap: 4px;
 }
 .wedstrijd-tijd {
-  width: 42px;
+  width: 34px;
   flex-shrink: 0;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--on-surface-variant);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .wedstrijd-speler {
   flex: 1;
   min-width: 0;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -222,7 +493,7 @@ main#content {
   cursor: pointer;
   background: none;
   border: none;
-  font: inherit;
+  font-family: inherit;
 }
 @media (prefers-color-scheme: dark) { .wedstrijd-speler.clickable { color: var(--secondary); } }
 
@@ -231,7 +502,7 @@ main#content {
   flex-shrink: 0;
   text-align: center;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
 }
 
 /* ---------- Tabellen (rangschikking / generiek) ---------- */
@@ -314,7 +585,7 @@ table.data-table tbody td.speler-cell {
   font-weight: 700;
   color: var(--primary);
   margin: 14px 0 6px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 @media (prefers-color-scheme: dark) { .detail-groep-titel { color: var(--secondary); } }
 .modal-body .wedstrijd-row { padding: 6px 0; }
