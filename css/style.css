@@ -135,9 +135,25 @@ main#content {
 .loading {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0;
+  gap: 14px;
+  padding: 40px 24px;
+  text-align: center;
+}
+.loading-tekst {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.loading-tekst strong {
+  font-size: 0.95rem;
+  color: var(--on-background);
+}
+.loading-tekst span {
+  font-size: 0.82rem;
+  color: var(--on-surface-variant);
 }
 .spinner {
   width: 36px;
@@ -209,6 +225,10 @@ main#content {
   background: var(--surface-variant);
   border-radius: 12px;
   overflow: hidden;
+}
+.accordion-card-wit {
+  background: var(--surface);
+  border: 1px solid var(--outline);
 }
 .accordion-header {
   width: 100%;
@@ -381,6 +401,138 @@ main#content {
   text-decoration: underline;
 }
 @media (prefers-color-scheme: dark) { .rankings-link { color: var(--secondary); } }
+
+/* ---------- Home: Sperrepelkesploeg-kaartje ---------- */
+.ploeg-speeldag {
+  font-size: 0.78rem;
+  color: var(--on-surface-variant);
+  text-align: left;
+  margin-bottom: 4px;
+}
+.ploeg-matchup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 14px 0 16px;
+}
+.ploeg-matchup-team {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  text-align: center;
+}
+.ploeg-matchup-vs {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+}
+.ploeg-matchup-groot .ploeg-matchup-team {
+  font-size: 1.05rem;
+}
+.ploeg-matchup-groot .ploeg-matchup-vs {
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+@media (prefers-color-scheme: dark) { .ploeg-matchup-groot .ploeg-matchup-vs { color: var(--secondary); } }
+.ploeg-locatie {
+  font-size: 0.78rem;
+  color: var(--on-surface-variant);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+table.ploeg-stand-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  table-layout: fixed;
+}
+table.ploeg-stand-table th {
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 6px 4px;
+  text-align: center;
+}
+table.ploeg-stand-table th:nth-child(1), table.ploeg-stand-table td:nth-child(1) { width: 22px; }
+table.ploeg-stand-table th:nth-child(2), table.ploeg-stand-table td:nth-child(2) { width: auto; }
+table.ploeg-stand-table th:nth-child(3), table.ploeg-stand-table td:nth-child(3) { width: 28px; }
+table.ploeg-stand-table th:nth-child(4), table.ploeg-stand-table td:nth-child(4) { width: 32px; }
+table.ploeg-stand-table th:nth-child(5), table.ploeg-stand-table td:nth-child(5) { width: 40px; }
+table.ploeg-stand-table th:nth-child(2) { text-align: left; padding-left: 8px; }
+table.ploeg-stand-table td {
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.76rem;
+  border-bottom: 1px solid var(--outline);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+table.ploeg-stand-table td.ploeg-naam-cel { text-align: left; padding-left: 8px; }
+table.ploeg-stand-table tr.ploeg-eigen-rij { font-weight: 700; }
+table.ploeg-stand-table tr.ploeg-eigen-rij td { color: var(--primary); }
+@media (prefers-color-scheme: dark) { table.ploeg-stand-table tr.ploeg-eigen-rij td { color: var(--secondary); } }
+
+/* ---------- Sperrepelkesploeg: volledige pagina (niet in het menu) ---------- */
+.ploegpagina-terug {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 14px;
+}
+@media (prefers-color-scheme: dark) { .ploegpagina-terug { color: var(--secondary); } }
+.ploegpagina-titel {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+@media (prefers-color-scheme: dark) { .ploegpagina-titel { color: var(--secondary); } }
+
+table.ploeg-spelers-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  table-layout: fixed;
+}
+table.ploeg-spelers-table th {
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 6px 4px;
+  text-align: center;
+}
+table.ploeg-spelers-table th:nth-child(1), table.ploeg-spelers-table td:nth-child(1) { width: 22px; }
+table.ploeg-spelers-table th:nth-child(2), table.ploeg-spelers-table td:nth-child(2) { width: auto; }
+table.ploeg-spelers-table th:nth-child(3), table.ploeg-spelers-table td:nth-child(3) { width: 56px; }
+table.ploeg-spelers-table th:nth-child(2) { text-align: left; padding-left: 8px; }
+table.ploeg-spelers-table td {
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.76rem;
+  border-bottom: 1px solid var(--outline);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+td.ploeg-speler-naam-cel {
+  text-align: left;
+  padding-left: 8px;
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media (prefers-color-scheme: dark) { td.ploeg-speler-naam-cel { color: var(--secondary); } }
+
+.ploeg-kalender-lijst { margin-top: 8px; }
+.ploeg-kalender-item { padding: 4px 0; }
 
 /* ---------- Home: sponsorbanner ---------- */
 .sponsor-banner {

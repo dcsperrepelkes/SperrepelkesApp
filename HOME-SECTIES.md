@@ -34,20 +34,62 @@ Met kopregel:
 `Link` is optioneel. Het nieuwste bericht (op basis van `Datum`) wordt als
 samenvatting getoond; de 5 recentste verschijnen in de uitklap.
 
-### 🏆 Sperrepelkesploeg (`ploeg`)
-**Zonder** kopregel — telkens een label en een waarde:
+### 🏆 Sperrepelkesploeg (`kalenderPloeg` + `rankingPloeg`)
 
-| | |
-|---|---|
-| Laatste wedstrijd | Sperrepelkes - KDC Leiestreek |
-| Laatste wedstrijd datum | 12/07/2026 |
-| Laatste wedstrijd uitslag | 7-5 winst |
-| Volgende wedstrijd | Sperrepelkes - Darts Wakken |
-| Volgende wedstrijd datum | 20/09/2026 |
-| Ranking | 3e plaats (24 punten) |
+Deze kaart gebruikt **twee** tabbladen uit een aparte spreadsheet
+(bv. genaamd `data_ploeg`), voor de interclub-vertegenwoordiging van de
+club (los van de reeksen A/B/C/D).
 
-Enkel deze exacte labels worden herkend; andere rijen worden genegeerd.
-Laat een rij gewoon weg als je die info (nog) niet hebt.
+**`kalenderPloeg`** — met kopregel:
+
+| Speeldag | Datum | Thuisploeg | punten thuisploeg | punten uitploeg | Uitploeg | Speellocatie | Adres |
+|---|---|---|---|---|---|---|---|
+| 1 | 05/09/2026 | DC De Blaa Poilen | | | DC De Sperrepelkes | Café De Kat | ... |
+| 2 | 19/09/2026 | DC De Sperrepelkes | 7 | 3 | DC T's Place | Café De Groene Lantaarn | ... |
+
+- **Volgende wedstrijd**: automatisch de wedstrijd met de eerstvolgende
+  datum (ongeacht of de scores al ingevuld zijn).
+- **Uitslag laatste wedstrijd**: de wedstrijd waarvan **beide** puntenvelden
+  ingevuld zijn, met de meest recente datum. Wint **"DC De Sperrepelkes"**
+  (exacte naam, zie `SPERREPELKES_PLOEGNAAM` bovenaan `app.js`), dan
+  verschijnt er een 🎉 achter hun naam.
+- Zijn er nog geen scores ingevuld, dan verschijnt dat onderdeel gewoon
+  niet — enkel "Volgende wedstrijd" toont dan.
+
+**`rankingPloeg`** — met kopregel:
+
+| Ranking | Ploeg | Matchen | Punten | Saldo |
+|---|---|---|---|---|
+| 1 | DC De Sperrepelkes | 3 | 7 | 4 |
+| 2 | DC T's Place | 3 | 5 | 1 |
+
+Wordt getoond als tabel onder de titel **"Stand na speeldag X"** (X = het
+speeldagnummer van de laatst ingevulde wedstrijd hierboven). De rij van
+"DC De Sperrepelkes" wordt automatisch **vetgedrukt en in de huiskleur**
+weergegeven, voor snelle herkenning.
+
+Beide tabbladen zijn onafhankelijk optioneel: heb je enkel de kalender
+ingevuld en de stand nog niet, dan toont de kaart gewoon de kalender-
+onderdelen zonder de stand-tabel (en omgekeerd).
+
+**Volledige Sperrepelkesploeg-pagina** (`rankingSpelers`, plus dezelfde
+`kalenderPloeg`/`rankingPloeg` als hierboven): onderaan het Home-kaartje
+staat een link "Bekijk hier de volledige Sperrepelkesploeg-pagina". Die
+opent een aparte pagina (**niet** opgenomen in de onderste menubalk,
+enkel bereikbaar via die link) met:
+
+- **De volledige stand** (zelfde tabel als op Home).
+- **De spelersranking**: kolommen Plaats, Speler, Winst % uit het
+  `rankingSpelers`-tabblad. Tik op een spelernaam voor een detailpopup met
+  alle overige kolommen (Opstellingen, Wedstrijden, Verloren, Leg winst,
+  Leg verlies, Leg Saldo, Winst %, Minste pijlen, Aantal 180, Hoogste
+  uitworp 100+).
+- **De volledige kalender**: alle wedstrijden chronologisch, elk in
+  dezelfde opmaak als op Home (met of zonder uitslag/feest-emoji).
+
+`rankingSpelers` verwacht kopregel: `RANKING, SPELER, Opstellingen,
+Wedstrijden, Gewonnen, Verloren, Leg winst, Leg verlies, Leg Saldo,
+Winst %, Minste pijlen, Aantal 180, Hoogste uitworp 100+`.
 
 ### 🏅 Sperrepelkes CUP (`cup`)
 **Zonder** kopregel, zelfde principe:
